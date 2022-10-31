@@ -1,0 +1,390 @@
+/*
+    ==============================
+        CONTENT
+    ==============================
+
+    1- Custom Properties
+        1.1- Colors
+        1.2- Paddings
+        1.3- Gaps
+        1.4- Transitions
+        1.5- Font Sizes
+    
+    2- Reset Styles
+        2.1- Box Sizing
+        2.2- Transition
+        2.3- Scroll Behavior
+        2.4- Images
+        2.5- Navigation Lists
+        2.6- Links
+
+    3- Utility Classes
+        3.1- No Wrap
+        3.2- For Screen Readers Only
+
+    4- Exrta Small Screens Layout (>0, <576px)
+        4.1- Page Body
+            4.1.1- Fonts
+
+        4.2- Page Header
+            4.2.1- Logo
+            4.2.2- Navigation Menu
+
+        4.3- Page Main
+            4.3.1- Page Main - Header
+            4.3.2- Page Main - Section
+                4.3.2.1- Page Main - Section 1
+                4.3.2.2- Page Main - Section 2
+
+        4.4- Page Footer
+
+    5- Responsive Layout (breake points defined by bootstrap5.2)
+        5.1- Small Screens (>=576, <768)
+        5.2- Medium Screens (>=768, <992)
+        5.3- Large Screens (>=992, 1200)
+        5.4- Extra Large Screens (>=1200, <infinity)
+
+    6- Dark Mode Color Theme
+*/
+
+/*
+    ==============================
+        1- Custom Properties
+    ==============================
+*/
+
+:root {
+    /* 1.1- Colors */
+    --background-color-100: #e6e6e6;
+    --background-color-200: #cccccc;
+    --background-color-800: #333333;
+    --background-color-850: #33333380;
+    --background-color-900: #191919;
+
+    /* 1.2- Paddings */
+    --small-padding: 0.5rem;
+    --normal-padding: calc(var(--small-padding) * 2);
+    --large-padding: calc(var(--normal-padding) * 2);
+    --xl-padding: calc(var(--large-padding) * 2);
+
+    /* 1.3- Gaps */
+    --normal-gap: 1rem;
+    --large-gap: calc(var(--normal-gap) * 2);
+
+    /* 1.4- Transitions */
+    --normall--transition: 0.25s;
+
+    /* 1.5- Font Sizes */
+    --normal-font-size: 2rem;
+    --large-font-size: calc(var(--normal-font-size) * 2);
+
+    /* 1.6- Borders */
+    --normal-border: 0.25rem solid black;
+}
+
+/*
+    ==============================
+        2- Reset Styles
+    ==============================
+*/
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+
+    /* 2.1- Box Sizing */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    /* 2.2- Transition */
+    transition: var(--normall--transition);
+}
+
+html {
+    /* 2.3- Scroll Behavior */
+    scroll-behavior: smooth;
+}
+
+/* 2.4- Images */
+img {
+    display: block;
+}
+
+/* 2.5- Navigation Lists */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 2.6- Links */
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+/*
+    ==============================
+        3- Utility Classes
+    ==============================
+*/
+
+/* 3.1- No Wrap */
+.no-wrap {
+    white-space: nowrap;
+}
+
+/* 3.2- For Screen Readers Only */
+.screen-readers-only {
+    position: absolute;
+    left: -10000px;
+}
+
+/*
+    ==============================
+        4- Exrta Small Screens Layout (>0, <576px)
+    ==============================
+*/
+
+/*
+    4.1- Page Body
+    --------------------
+*/
+
+body {
+    /* 4.1.1- Fonts */
+    font-family: "Quicksand", sans-serif;
+}
+
+/*
+    4.2- Page Header
+    --------------------
+*/
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: var(--small-padding);
+    padding-inline: var(--normal-padding);
+    background-color: var(--background-color-100);
+}
+
+/* 4.2.1- Logo */
+
+.logo,
+.logo h1 {
+    font-size: var(--normal-font-size);
+    margin-block: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--normal-gap);
+    outline: none;
+}
+
+.logo:hover,
+.logo:focus {
+    rotate: -1deg;
+}
+
+.logo:focus {
+    color: red;
+}
+
+/* 4.2.2- Navigation Menu */
+
+.nav-menu ul {
+    display: flex;
+    gap: var(--normal-gap);
+}
+
+.nav-item:last-child {
+    font-weight: bold;
+}
+
+.nav-item:hover {
+    scale: 1.05;
+    rotate: 5deg;
+}
+
+.nav-item a {
+    outline: none;
+}
+
+.nav-item a:focus {
+    color: red;
+}
+
+/*
+    4.3- Page Main
+    --------------------
+*/
+
+/* 4.3.1- Page Main - Header */
+
+.main__header {
+    color: white;
+    background-color: var(--background-color-800);
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-position: right;
+    min-height: calc(100vh - (var(--normal-font-size) + 2 * var(--small-padding)) - 0.3rem);
+    /* Just Centering Content */
+    display: flex;
+    align-items: center;
+}
+
+.main__header .wraper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: var(--large-gap);
+    padding: var(--large-padding);
+    background-color: var(--background-color-850);
+}
+
+.main__header h3 {
+    font-size: var(--large-font-size);
+}
+
+.main__header p {
+    font-size: var(--normal-font-size);
+}
+
+/* 4.3.2- Page Main - Section */
+
+.main__section {
+    padding-block: var(--xl-padding);
+    padding-inline: var(--large-padding);
+}
+
+.main__section h4 {
+    font-size: var(--normal-font-size);
+}
+
+.main__subsection svg {
+    font-size: var(--large-font-size);
+}
+
+/* 4.3.2.1- Page Main - Section 1 */
+
+.main__section-1 {
+    background-color: var(--background-color-100);
+}
+
+.main__section-1 .wraper {
+    margin-top: var(--large-padding);
+    margin-inline: auto;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: var(--large-gap);
+}
+
+.main__section-1 .main__subsection {
+    display: flex;
+    align-items: center;
+    gap: var(--normal-gap);
+}
+
+/* 4.3.2.2- Page Main - Section 2 */
+
+.main__section-2 {
+    text-align: center;
+}
+
+.main__section-2 .wraper {
+    margin-top: var(--large-padding);
+    display: flex;
+    flex-direction: column;
+    gap: var(--large-gap);
+}
+
+.main__section-2 .main__subsection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--normal-gap);
+}
+
+.main__section-2 svg {
+    width: var(--large-font-size);
+    padding: var(--small-padding);
+    margin-inline: auto;
+    border: var(--normal-border);
+    border-radius: 50%;
+}
+
+/*
+    4.4- Page Footer
+    --------------------
+*/
+
+.footer {
+    text-align: center;
+    background-color: var(--background-color-100);
+    padding: var(--large-padding);
+}
+
+/*
+    ==============================
+        5- Responsive Layout (breake points defined by bootstrap5.2)
+    ==============================
+*/
+
+/*
+    5.1- Small Screens (>=576, <768)
+    --------------------
+*/
+@media screen and (min-width: 576px) {
+}
+
+/*
+    5.2- Medium Screens (>=768, <992)
+    --------------------
+*/
+@media screen and (min-width: 768px) {
+}
+
+/*
+    5.3- Large Screens (>=992, 1200)
+    --------------------
+*/
+@media screen and (min-width: 992px) {
+}
+
+/*
+    5.4- Extra Large Screens (>=1200, <infinity)
+    --------------------
+*/
+@media screen and (min-width: 1200px) {
+}
+
+/*
+    ==============================
+        6- Dark Mode Color Theme
+    ==============================
+*/
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color-100: #191919;
+        --background-color-900: #e6e6e6;
+
+        --normal-border: 0.25rem solid white;
+    }
+
+    body {
+        color: white;
+    }
+
+    .main__section-2 {
+        background-color: var(--background-color-800);
+    }
+}
